@@ -17,6 +17,7 @@ public class BulletTurret : MonoBehaviour
         
     }
     // частично
+    // мобилизацион
     
     // Update is called once per frame
     void Update()

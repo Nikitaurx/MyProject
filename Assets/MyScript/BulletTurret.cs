@@ -56,4 +56,6 @@ public class BulletTurret : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player");
     }
 
+    //старая версия
+
 }

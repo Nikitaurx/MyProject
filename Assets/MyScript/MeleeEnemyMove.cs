@@ -1,29 +1,26 @@
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+
 
 public class MeleeEnemyMove : MonoBehaviour
 {
-    [SerializeField] GameObject _ghoulPrefab;
-    [SerializeField] public Transform spawn_point;
-    public List<GameObject> Ghoul; // список мобов
-
+    private NavMeshAgent agent;
+    [SerializeField] Transform _pointToSecure1;
+    [SerializeField] Transform _pointToSecure2;
+    public List<Transform> targets;
     void Start()
     {
-        //player = GameObject.FindGameObjectWithTag("Player").transform;
-        Spawn();
-        //StartCoroutine(WaitAndSpawn());
-        
+        agent = GetComponent<NavMeshAgent>();
     }
-    IEnumerator WaitAndSpawn(){
-        yield return new WaitForSeconds(5);
-        Spawn();
-    }
-    void Spawn()
-    {
-        GameObject z = Instantiate(_ghoulPrefab, spawn_point);  // получаем точку спавна
-        Ghoul.Add(z); // добавляем в список
-    }
+
+    // void Update()
+    // {
+    //     if (agent.transform.position == agent.pathEndPosition)
+    //     {
+
+    //     }
+    //     agent.SetDestination(_pointToSecure1);
 
 }

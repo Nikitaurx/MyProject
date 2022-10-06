@@ -9,6 +9,8 @@ public class movingHero : MonoBehaviour
 
     private bool runForward = false;
     private bool runBackward = false;
+    private bool runRight = false;
+    private bool runLeft = false;
 
     private Vector2 velocity;
 
@@ -19,6 +21,26 @@ public class movingHero : MonoBehaviour
 
         transform.Translate(velocity.x, 0f, velocity.y);
 
+        // if (Input.GetKey(KeyCode.W))
+        // {
+        //     runForward = true;
+        //     _animator.SetBool("Run", runForward);
+        // }
+        // else
+        // {
+        //     runForward = false;
+        //     _animator.SetBool("Run", runForward);
+        // }
+        AnimationForward();
+        AnimationBackward();
+        AnimationRight();
+        AnimationLeft();
+
+
+    }
+
+    private void AnimationForward()
+    {
         if (Input.GetKey(KeyCode.W))
         {
             runForward = true;
@@ -29,7 +51,9 @@ public class movingHero : MonoBehaviour
             runForward = false;
             _animator.SetBool("Run", runForward);
         }
-
+    }
+    private void AnimationBackward()
+    {
         if (Input.GetKey(KeyCode.S))
         {
             runBackward = true;
@@ -39,6 +63,32 @@ public class movingHero : MonoBehaviour
         {
             runBackward = false;
             _animator.SetBool("BackwardRun", runBackward);
+        }
+    }
+    private void AnimationRight()
+    {
+        if (Input.GetKey(KeyCode.D))
+        {
+            runRight = true;
+            _animator.SetBool("RightRun", runRight);
+        }
+        else
+        {
+            runRight = false;
+            _animator.SetBool("RightRun", runRight);
+        }
+    }
+    private void AnimationLeft()
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
+            runLeft = true;
+            _animator.SetBool("LeftRun", runLeft);
+        }
+        else
+        {
+            runLeft = false;
+            _animator.SetBool("LeftRun", runLeft);
         }
     }
 

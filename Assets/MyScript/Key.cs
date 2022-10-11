@@ -7,42 +7,35 @@ public class Key : MonoBehaviour
     private GameObject _player;
     private GameObject _key;
     private GameObject _door;
-    private bool _pickUpKey;
+    private bool leverActive;
+    public Animator animVorota;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-         
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == _player)
         {
-            _pickUpKey = true;
-            Destroy(_key);
+            leverActive = true;
+            animVorota.SetBool("OnLever", leverActive);
         }
-        print("Key has been picked");
 
-        if (other.gameObject == _player && _pickUpKey == true)
-        {
-            Destroy(_door);
-            _pickUpKey = false;
-        }
-        
     }
 
 
     void Awake()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
-        _key = GameObject.FindGameObjectWithTag("Key");
         _door = GameObject.FindGameObjectWithTag("Door");
     }
 

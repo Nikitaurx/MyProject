@@ -11,30 +11,25 @@ public class movingHero : MonoBehaviour
     private bool runBackward = false;
     private bool runRight = false;
     private bool runLeft = false;
+    private bool death = false;
 
     private Vector2 velocity;
 
     private void Update()
     {
-        velocity.x = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
-        velocity.y = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
+        if (death == false)
+        {
+            velocity.x = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
+            velocity.y = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
 
-        transform.Translate(velocity.x, 0f, velocity.y);
+            transform.Translate(velocity.x, 0f, velocity.y);
+        }
 
-        // if (Input.GetKey(KeyCode.W))
-        // {
-        //     runForward = true;
-        //     _animator.SetBool("Run", runForward);
-        // }
-        // else
-        // {
-        //     runForward = false;
-        //     _animator.SetBool("Run", runForward);
-        // }
         AnimationForward();
         AnimationBackward();
         AnimationRight();
         AnimationLeft();
+        AnimationDeath();
 
 
     }
@@ -89,6 +84,16 @@ public class movingHero : MonoBehaviour
         {
             runLeft = false;
             _animator.SetBool("LeftRun", runLeft);
+        }
+    }
+
+    public void AnimationDeath()
+    {
+        float hp = GetComponent<HealthHero>()._currentHealth;
+        if (hp <= 0)
+        {
+            death = true;
+            _animator.SetBool("Death", death);
         }
     }
 

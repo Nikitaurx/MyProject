@@ -16,7 +16,7 @@ public class Mine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire3"))
         {
             Instantiate(_mine, _mineSpawnPoint.position, _mineSpawnPoint.rotation);
         }

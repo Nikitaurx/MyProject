@@ -8,7 +8,7 @@ public class HealthHero : MonoBehaviour
     public Slider HealthBar;
     public float Health = 100;
 
-    private float _currentHealth;
+    public float _currentHealth;
 
     void Start()
     {
@@ -17,10 +17,10 @@ public class HealthHero : MonoBehaviour
 
     void Update()
     {
-        if (_currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
+        // if (_currentHealth <= 0)
+        // {
+        //     Destroy(gameObject);
+        // }
     }
 
     public void TakeDamage(float damage)

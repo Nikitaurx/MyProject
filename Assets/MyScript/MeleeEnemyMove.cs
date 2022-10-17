@@ -1,7 +1,7 @@
-using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 public class MeleeEnemyMove : MonoBehaviour
@@ -22,5 +22,5 @@ public class MeleeEnemyMove : MonoBehaviour
 
     //     }
     //     agent.SetDestination(_pointToSecure1);
-
+    // }
 }

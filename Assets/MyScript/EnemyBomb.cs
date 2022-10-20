@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyBomb : MonoBehaviour
 {
     private GameObject _player;
-    private bool _collidedWithPlayer;
     [SerializeField] private float _damage;
 
     // Start is called before the first frame update
@@ -17,10 +16,7 @@ public class EnemyBomb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_collidedWithPlayer)
-        {
-            _player.GetComponent<HealthHero>().TakeDamage(_damage);
-        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,6 +32,6 @@ public class EnemyBomb : MonoBehaviour
     void Awake()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
-    }    
+    }
 
 }

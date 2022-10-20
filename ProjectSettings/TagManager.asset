@@ -10,6 +10,7 @@ TagManager:
   - Door
   - HealthUp
   - Turrel
+  - Enemy
   layers:
   - Default
   - TransparentFX
